@@ -1,9 +1,7 @@
-const path = require('path');
+import { resolve } from 'path';
 
-module.exports = {
-    mode: 'development',
-    devtool: 'inline-source-map',
-    devServer: {
-        static: path.resolve(__dirname, './dist'),
-    },
+export const mode = 'development';
+export const devtool = 'inline-source-map';
+export const devServer = {
+    static: resolve(__dirname, './dist'),
 };
