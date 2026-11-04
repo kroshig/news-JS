@@ -1,35 +1,152 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    color: #fff;
-    background: #17181c;
-    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #f8fafc;
+    background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
 }
 
-header {
-    padding: 10px 30px;
+.header {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    padding: 24px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-header h1 {
-    font-size: 40px;
+.header__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header__title {
+    font-size: clamp(26px, 4vw, 40px);
     font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-footer {
-    height: 100px;
+.header__subtitle {
+    font-size: clamp(13px, 2vw, 15px);
+    color: #94a3b8;
+}
+
+.main {
+    flex: 1;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px 32px 48px;
+}
+
+.sources-section {
+    margin-bottom: 32px;
+}
+
+.sources-section__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.footer {
+    background: #0b1120;
+    border-top: 1px solid rgba(148, 163, 184, 0.15);
+    padding: 24px 32px;
+    margin-top: auto;
+}
+
+.footer__container {
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
 }
-footer .copyright {
+
+.footer__github {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 14px;
-    color: #333;
+    transition: color 0.2s ease;
+}
+
+.footer__github:hover {
+    color: #38bdf8;
+}
+
+.footer .copyright {
+    font-size: 14px;
+    color: #94a3b8;
     text-align: center;
 }
-footer .copyright a {
-    color: #444;
+
+.footer .copyright::before {
+    content: '© ';
 }
-footer .copyright a:hover {
-    color: #555;
+
+.footer .copyright a {
+    color: #38bdf8;
+    text-decoration: none;
 }
-footer .copyright:before {
-    content: '©';
+
+.footer .copyright a:hover {
+    text-decoration: underline;
+}
+
+.footer__rss-link {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.footer__rss-link:hover {
+    transform: scale(1.05);
+}
+
+.footer__rss-logo {
+    width: 96px;
+    height: 36px;
+}
+
+@media (max-width: 640px) {
+    .header {
+        padding: 16px;
+    }
+
+    .main {
+        padding: 16px 12px 32px;
+    }
+
+    .footer {
+        padding: 20px 16px;
+    }
+
+    .footer__container {
+        flex-direction: column;
+        text-align: center;
+    }
 }

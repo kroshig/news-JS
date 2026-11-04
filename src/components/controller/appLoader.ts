@@ -9,7 +9,7 @@ declare const process: {
 
 class AppLoader extends Loader {
     constructor() {
-        super(process.env.API_URL ?? 'https://newsapi.org/v2/', {
+        super(process.env.API_URL ?? 'https://rss-news-api.onrender.com/', {
             apiKey: process.env.API_KEY ?? '',
         });
     }
